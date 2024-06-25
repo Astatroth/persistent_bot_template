@@ -1,15 +1,6 @@
 from app.State import State
 from telegram import Update
-from telegram.ext import (
-    Application,
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler,
-    ConversationHandler,
-    MessageHandler,
-    PicklePersistence,
-    filters,
-)
+from telegram.ext import CallbackContext
 
 
 class MainController:
