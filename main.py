@@ -32,7 +32,7 @@ def main() -> None:
         if isinstance(update, Update):
             await context.bot.send_message(
                 chat_id=update.effective_chat.id,
-                text=self.lang.t("errors.whoops")
+                text="\u2757 " + self.lang.t("errors.whoops")
             )
 
         return ConversationHandler.END
