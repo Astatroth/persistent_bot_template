@@ -22,7 +22,12 @@ Logger.get_logger("httpx").setLevel(logging.WARNING)
 
 def main() -> None:
     persistence = PicklePersistence(filepath=os.path.dirname(__file__) + '/storage/persistence/' + Config.BOT_NAME)
-    application = Application.builder().token(Config.BOT_TOKEN).persistence(persistence).build()
+    application = (Application.builder()
+                   .token(Config.BOT_TOKEN)
+                   .read_timeout(10)
+                   .write_timeout(10)
+                   .persistence(persistence)
+                   .build())
 
     async def error_handler(self, update: object, context: CallbackContext) -> int:
         tb_list = traceback.format_exception(None, context.error, context.error.__traceback__)
